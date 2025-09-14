@@ -50,7 +50,7 @@ app.mount("/audio_outputs", StaticFiles(directory="audio_outputs"), name="audio_
 # ==================== 配置 ====================
 
 # DeepSeek API配置
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "sk-a68ba86867044b8ebcb5e669937626a1")
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "<key>")
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 
 # MCP服务地址

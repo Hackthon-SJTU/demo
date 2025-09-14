@@ -1,6 +1,6 @@
 """
-MCP1 - 文本生成图片服务（静态资源版）
-用于演示的模拟服务，返回预设的图片
+MCP1 - 文本生成图片服务
+服务，返回预设的图片
 """
 
 from fastapi import FastAPI, HTTPException
@@ -20,7 +20,7 @@ import shutil
 # ==================== 初始化FastAPI ====================
 app = FastAPI(
     title="MCP1 - Text to Image Service (Static)",
-    description="文本生成图片服务（静态资源版）",
+    description="文本生成图片服务",
     version="1.0.0"
 )
 
@@ -121,7 +121,6 @@ class ImageManager:
     def get_next_image(self):
         """
         获取下一张图片的URL。
-        修改后：不再复制文件，总是返回一个固定的静态图片。
         """
         # if not self.static_images:
         #     return None
@@ -177,7 +176,7 @@ image_manager = ImageManager()
 
 async def generate_image_static(prompt: str, gpt_prompt: str, width: int = 1024, height: int = 768):
     """
-    模拟生成图片（使用静态资源）
+    生成图片
     
     Args:
         prompt: 场景描述
@@ -216,9 +215,9 @@ async def generate_image_static(prompt: str, gpt_prompt: str, width: int = 1024,
 @app.post("/mcp1/text-to-image", response_model=TextToImageResponse)
 async def text_to_image(request: TextToImageRequest):
     """
-    MCP1标准接口：文本生成图片（静态实现）
+    MCP1标准接口：文本生成图片
     
-    接收文本描述和GPT prompt，返回预设的图片
+    接收文本描述和GPT prompt
     """
     print("\n" + "=" * 80)
     print(f"[MCP1 Static API] 收到文生图请求")
@@ -267,7 +266,7 @@ async def root():
     """服务信息"""
     return {
         "service": "MCP1 - Text to Image (Static)",
-        "description": "文本生成图片服务（静态资源版）",
+        "description": "文本生成图片服务",
         "status": "running",
         "mode": "static",
         "endpoints": {
@@ -371,7 +370,7 @@ async def test_image_display():
     </head>
     <body>
         <div class="container">
-            <h1>MCP1 图片测试（静态版）</h1>
+            <h1>MCP1 图片测试</h1>
             
             <div class="info">
                 <p><strong>服务模式:</strong> 静态资源</p>
@@ -397,7 +396,7 @@ if __name__ == "__main__":
     import uvicorn
     
     print("\n" + "=" * 80)
-    print("MCP1 - 文本生成图片服务（静态资源版）")
+    print("MCP1 - 文本生成图片服务")
     print("=" * 80)
     print(f"模式: 静态资源")
     print(f"输出目录: {OUTPUTS_DIR}")

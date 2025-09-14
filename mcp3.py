@@ -1,6 +1,6 @@
 """
-MCP3 - 图片生成音频服务（静态资源版）
-用于演示的模拟服务，返回预录制的音频文件
+MCP3 - 图片生成音频服务
+服务，返回预录制的音频文件
 """
 
 from fastapi import FastAPI, HTTPException
@@ -15,8 +15,8 @@ from datetime import datetime
 
 # ==================== 初始化FastAPI ====================
 app = FastAPI(
-    title="MCP3 - Image to Audio Service (Static)",
-    description="图片生成10秒音频服务（静态资源版）",
+    title="MCP3 - Image to Audio Service",
+    description="图片生成10秒音频服务",
     version="1.0.0"
 )
 
@@ -92,9 +92,7 @@ audio_manager = AudioManager()
 @app.post("/mcp3/image-to-audio", response_model=ImageToAudioResponse)
 async def image_to_audio(request: ImageToAudioRequest):
     """
-    MCP3标准接口：图片生成10秒音频（静态实现）
-    
-    模拟图片生成音频的过程，实际返回预录制的音频文件
+    MCP3标准接口：图片生成10秒音频
     """
     print("\n" + "=" * 80)
     print(f"[MCP3 Static] 收到图片转音频请求")
@@ -138,7 +136,7 @@ async def root():
     """服务信息"""
     return {
         "service": "MCP3 - Image to Audio (Static)",
-        "description": "图片生成10秒音频服务（静态资源版）",
+        "description": "图片生成10秒音频服务",
         "status": "running",
         "default_audio": audio_manager.default_audio,
         "audio_exists": audio_manager.check_audio_exists(),
@@ -258,7 +256,7 @@ if __name__ == "__main__":
     import uvicorn
     
     print("\n" + "=" * 80)
-    print("MCP3 - 图片生成音频服务（静态资源版）")
+    print("MCP3 - 图片生成音频服务")
     print("=" * 80)
     print(f"音频目录: {AUDIO_DIR}")
     print(f"输出目录: {OUTPUTS_DIR}")

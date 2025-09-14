@@ -1,6 +1,6 @@
 """
-MCP4 - 视频音频合并服务（静态资源版）
-用于演示的模拟服务，返回预制的合成视频
+MCP4 - 视频音频合并服务
+服务，返回预制的合成视频
 """
 
 from fastapi import FastAPI, HTTPException
@@ -17,7 +17,7 @@ from datetime import datetime
 # ==================== 初始化FastAPI ====================
 app = FastAPI(
     title="MCP4 - Video Audio Merge Service (Static)",
-    description="合并视频和音频服务（静态资源版）",
+    description="合并视频和音频服务",
     version="1.0.0"
 )
 
@@ -118,9 +118,7 @@ merge_manager = MergeManager()
 @app.post("/mcp4/merge-video-audio", response_model=MergeVideoAudioResponse)
 async def merge_video_audio(request: MergeVideoAudioRequest):
     """
-    MCP4标准接口：合并视频和音频（静态实现）
-    
-    直接返回预制的6.mp4（1-5.mp4的合成视频）
+    MCP4标准接口：合并视频和音频
     """
     print("\n" + "=" * 80)
     print(f"[MCP4 Static] 收到视频音频合并请求")
@@ -382,7 +380,7 @@ if __name__ == "__main__":
     import uvicorn
     
     print("\n" + "=" * 80)
-    print("MCP4 - 视频音频合并服务（静态资源版）")
+    print("MCP4 - 视频音频合并服务")
     print("=" * 80)
     print(f"视频目录: {VEDIOS_DIR}")
     print(f"音频目录: {AUDIO_DIR}")

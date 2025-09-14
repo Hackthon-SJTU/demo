@@ -14,7 +14,7 @@ from datetime import datetime
 # ==================== 初始化FastAPI ====================
 app = FastAPI(
     title="MCP2 - Image to Video Service (Static)",
-    description="图片生成4秒视频服务（静态资源版）",
+    description="图片生成4秒视频服务",
     version="1.0.0"
 )
 
@@ -90,7 +90,7 @@ video_manager = VideoManager()
 @app.post("/mcp2/image-to-video", response_model=ImageToVideoResponse)
 async def image_to_video(request: ImageToVideoRequest):
     """
-    MCP2标准接口：图片生成4秒视频（静态实现）
+    MCP2标准接口：图片生成4秒视频
     
     模拟图片生成视频的过程，实际返回预录制的视频文件
     """
@@ -137,7 +137,7 @@ async def root():
     """服务信息"""
     return {
         "service": "MCP2 - Image to Video (Static)",
-        "description": "图片生成4秒视频服务（静态资源版）",
+        "description": "图片生成4秒视频服务",
         "status": "running",
         "available_videos": 5,
         "current_counter": video_manager.counter,
@@ -208,7 +208,7 @@ if __name__ == "__main__":
     import uvicorn
     
     print("\n" + "=" * 80)
-    print("MCP2 - 图片生成视频服务（静态资源版）")
+    print("MCP2 - 图片生成视频服务")
     print("=" * 80)
     print(f"视频目录: {VEDIOS_DIR}")
     print(f"输出目录: {OUTPUTS_DIR}")
